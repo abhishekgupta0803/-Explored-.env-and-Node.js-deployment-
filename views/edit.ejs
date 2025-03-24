@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <p><b>ID :</b><%=ID.id %></p><br>
+    <p><b>Sender :</b><%= ID.from %></p><br>
+    <p> <b>Receiver:</b><%=ID.to %></p><br>
+    <form method="post"  action="/chats/<%=ID._id %>?_method=PATCH">
+        <textarea name="mess" cols="50" rows="10"><%= ID.mess%></textarea><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
