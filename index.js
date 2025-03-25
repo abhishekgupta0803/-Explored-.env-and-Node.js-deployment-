@@ -11,7 +11,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+
 const port = process.env.PORT || 8080
+
 main().then(()=>{
     console.log("Connect to DB");
 
@@ -77,7 +79,7 @@ app.patch("/chats/:id" , async(req,res)=>{
 //delete
 app.delete("/chats/:id", async(req,res)=>{
     let {id } = req.params;
-    const deleteData = await chat.findByIdAndDelete(id);
+    await chat.findByIdAndDelete(id);
     res.redirect("/chats");
 
 });
